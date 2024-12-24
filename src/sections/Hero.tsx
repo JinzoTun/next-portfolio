@@ -56,14 +56,16 @@ export const HeroSection = () => {
         className="size-[100px]" 
         alt="Person peeking from behind laptop" />
         <div className="bg-gray-900 border border-gray-800 px-4 py-1.5 inline-flex items-center gap-4 rounded-lg ">
-          <div className="bg-green-500 size-2.5 rounded-full"></div>
+          <div className="bg-green-500 size-2.5 relative rounded-full">
+            <div className="bg-green-500 inset-0 rounded-full absolute animate-ping-large"> </div>
+          </div>
           <div className=" text-sm font-semibold">Available for new projects</div>
         </div>
       </div>
       <div className="max-w-lg mx-auto ">
         <h1 className=" font-serif text-3xl md:text-5xl text-center mt-8 tracking-wide">Building Exceptional User Experiences</h1>
         <p className="mt-4 text-center text-white/60 md:text-lg">
-          I specialize in transforming complex ideas into intuitive digital solutions. Let's discuss your next project.
+          I specialize in transforming complex ideas into intuitive digital solutions. Let&apos;s discuss your next project.
         </p>
       </div>
       <div className=" flex flex-col md:flex-row justify-center items-center mt-8 gap-4">
@@ -73,7 +75,7 @@ export const HeroSection = () => {
         </button>
         <button className="inline-flex items-center gap-2 border border-white bg-white text-gray-900  h-12 px-6 rounded-xl">
           <span>👋</span>
-          <span className="font-semibold">Let's Connect</span>
+          <span className="font-semibold">Let&apos;s Connect</span>
         </button>
       </div>
     </div>
