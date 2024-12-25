@@ -106,9 +106,9 @@ export const AboutSection = () => {
               <CardHeader title="My Toolbox" 
               description="Explore the technologies and tools I use to create digital experiences." 
               /> 
-              <ToolboxItems items={toolboxItems}  />
+              <ToolboxItems items={toolboxItems} itemsWrapperClassName=" animate-move-left [animation-duration:30s]"  />
               <ToolboxItems items={toolboxItems}  className="mt-6 "
-              itemsWrapperClassName=" -translate-x-1/2 "
+              itemsWrapperClassName="  animate-move-right [animation-duration:15s]"
               />
             </Card>
           </div>
