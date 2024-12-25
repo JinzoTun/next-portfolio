@@ -1,6 +1,6 @@
+'use client';
 import { Card } from "@/components/Card";
 import { SectionHeader } from "@/components/SectionHeader";
-import StarIcon from "@/assets/icons/star.svg";
 import bookImage from "@/assets/images/book-cover.jpg";
 import Image from "next/image";
 import ReactIcon from "@/assets/icons/react.svg";
@@ -13,6 +13,8 @@ import mapImage from "@/assets/images/map.png";
 import smileMemoji from "@/assets/images/memoji-smile.png";
 import { CardHeader } from "@/components/CardHeader";
 import { ToolboxItems } from "@/components/ToolboxItems";
+import { motion } from "framer-motion";
+import { useRef } from "react";
 
 const toolboxItems = [
   {
@@ -83,8 +85,9 @@ const hobbies = [
 
 
 export const AboutSection = () => {
+  const constraintRef = useRef(null);
   return (
-      <div className="py-20 lg:py-28">
+      <div className="py-20 lg:py-28" id="about">
         <div className="container">
         <SectionHeader 
         eyebrow="About" 
@@ -121,23 +124,35 @@ export const AboutSection = () => {
               className="" 
               />
             
-                <div className="relative flex-1 ">
+                <div className="relative flex-1 " ref={constraintRef}>
                   {hobbies.map((hobby) => (
-                    <div key={hobby.title} className="absolute inline-flex items-center gap-2 px-6 bg-gradient-to-r from-emerald-300 to-sky-400 rounded-full py-1.5  "
+                    <motion.div key={hobby.title} className=" hover:cursor-grab absolute inline-flex items-center gap-2 px-6 bg-gradient-to-r from-emerald-300 to-sky-400 rounded-full py-1.5  "
                     style={{
                       left: hobby.left,
                       top: hobby.top 
                   }}
+                  whileHover={{
+                    scale: 1.1,
+                    transition: {
+                      duration: 0.3
+                    }
+                  }}
+                  drag
+                  dragConstraints={constraintRef}
+                  dragElastic={0.5}
+                 
                     >
                       <span className=" font-medium text-gray-950">{hobby.title}</span>
                       <span>{hobby.emoji}</span>
-                    </div>
+                    </motion.div>
                   ))}
                 </div>
             </Card>
             <Card className="h-[330px] relative md:col-span-2 lg:col-span-1">
                 <Image src={mapImage} alt="Map" className="h-full w-full object-cover" />
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 size-20 rounded-full bg-gradient-to-r from-emerald-300 to-sky-400 after:content-[''] after:absolute after:inset-0 after:outline after:outline-2 after:-outline-offset-2 after:rounded-full after:outline-gray-950/30 ">
+                <div className="absolute inset-0 rounded-full bg-gradient-to-r from-emerald-300 to-sky-400 -z-20 animate-ping [animation-duration:2s]"></div>
+                <div className="absolute inset-0 rounded-full bg-gradient-to-r from-emerald-300 to-sky-400 -z-10"></div>
                   <Image src={smileMemoji} alt="Memoji" className="size-20" />
                 </div>
             </Card>

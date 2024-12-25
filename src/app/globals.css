@@ -17,3 +17,8 @@
         @apply lg:max-w-6xl; 
     }
 }
+
+/* smooth scroll */
+html {
+    scroll-behavior: smooth;
+}
